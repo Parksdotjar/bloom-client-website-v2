@@ -1,0 +1,153 @@
+@import '@fontsource/sora/600.css';
+@import '@fontsource/sora/700.css';
+@import '@fontsource-variable/manrope';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #050507;
+  --bg-deep: #020204;
+  --panel: rgba(14, 12, 18, 0.72);
+  --panel-strong: rgba(20, 14, 22, 0.86);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: rgba(248, 246, 250, 0.96);
+  --muted: rgba(232, 226, 239, 0.66);
+  --soft: rgba(232, 226, 239, 0.28);
+  --accent: #f26cb6;
+  --accent-strong: rgba(242, 108, 182, 0.52);
+  --accent-soft: rgba(242, 108, 182, 0.16);
+  --accent-faint: rgba(242, 108, 182, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(242, 108, 182, 0.15), transparent 26%),
+    radial-gradient(circle at 82% 18%, rgba(131, 42, 90, 0.16), transparent 22%),
+    linear-gradient(180deg, #060508 0%, #040406 36%, #020204 100%);
+  background-color: var(--bg);
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background: transparent;
+  color: var(--text);
+  font-family: 'Manrope Variable', Manrope, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+body::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(242, 108, 182, 0.56), rgba(255, 255, 255, 0.18));
+  background-clip: padding-box;
+}
+
+::selection {
+  background: rgba(242, 108, 182, 0.3);
+  color: white;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .intro-scroll-float {
+    animation: intro-float 2.6s ease-in-out infinite;
+  }
+
+  .text-muted {
+    color: var(--muted);
+  }
+
+  .story-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-position: center center;
+    background-size: 120px 120px;
+    mask-image: radial-gradient(circle at center, black 38%, transparent 88%);
+  }
+
+  .story-noise {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px),
+      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px),
+      radial-gradient(circle at 42% 78%, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px);
+    background-size: 260px 260px, 320px 320px, 280px 280px;
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.95), transparent 90%);
+  }
+
+  .story-scanlines {
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0,
+      rgba(255, 255, 255, 0.01) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+    mask-image: radial-gradient(circle at center, black 25%, transparent 85%);
+  }
+
+  .vignette {
+    background:
+      radial-gradient(circle at center, transparent 45%, rgba(0, 0, 0, 0.58) 100%),
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.02), transparent 55%);
+  }
+}
+
+@keyframes intro-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.34;
+  }
+
+  50% {
+    transform: translateY(8px);
+    opacity: 0.68;
+  }
+}
